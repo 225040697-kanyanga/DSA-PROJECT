@@ -1,7 +1,7 @@
 public class SelectionSort {
 
     // This method is now ready to be used by the experiment script!
-    public static void sort(int[] arr) {
+    public static int sort(int[] arr) {
         int comparisons = 0;
         int n = arr.length;
         int n swap = 0;
@@ -40,6 +40,7 @@ public class SelectionSort {
         System.out.println("Sorted array: " + arrayToString(arr));
         System.out.println("Total data-value comparisons: " + comparisons);
         System.out.println("Total swaps: " + swaps);
+        return 0;
     }
 
     private static String arrayToString(int[] arr) {
