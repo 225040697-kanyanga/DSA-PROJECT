@@ -1,6 +1,6 @@
 public class DailyStatisticsArray {
 
-    public static void main(String[] args) {
+    public static void calculate(int[] serviceTime ) {
     
         int[] serviceTimes = {12, 5, 8, 4, 15, 20, 3, 9, 11, 7};
 
