@@ -1,70 +1,50 @@
 public class QuickSort {
 
-    public static int[] quickSort(int[] arr) {
-        if (arr.length <= 1) {
-            return arr;
-        }
-
-        int pivot = arr[0];
-
-        // Count elements for left and right partitions
-        int leftCount = 0;
-        int rightCount = 0;
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] <= pivot) {
-                leftCount++;
-            } else {
-                rightCount++;
-            }
-        }
-
-        int[] left = new int[leftCount];
-        int[] right = new int[rightCount];
-
-        int l = 0;
-        int r = 0;
-
-        // Create the partitions
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] <= pivot) {
-                left[l++] = arr[i];
-            } else {
-                right[r++] = arr[i];
-            }
-        }
-
-        // Recursively sort both partitions
-        left = quickSort(left);
-        right = quickSort(right);
-
-        // Combine left + pivot + right
-        int[] result = new int[arr.length];
-        int index = 0;
-
-        for (int value : left) {
-            result[index++] = value;
-        }
-
-        result[index++] = pivot;
-
-        for (int value : right) {
-            result[index++] = value;
-        }
-
-        return result;
+    // Main entry point that the experiment script will call
+    public static int sort(int[] arr) {
+        return quickSort(arr, 0, arr.length - 1);
     }
 
-    public static void main(String[] args) {
+    // Helper recursive method to track comparison counts
+    private static int quickSort(int[] arr, int low, int high) {
+        int comparisons = 0;
+        if (low < high) {
+            // Create an array to catch the comparison count from partition
+            int[] partitionResult = partition(arr, low, high);
+            int pivotIndex = partitionResult[0];
+            comparisons += partitionResult[1]; // Add comparisons from this step
 
-        int[] services = {17, 5, 23, 8, 14, 3, 11, 20, 6, 9};
-
-        int[] sorted = quickSort(services);
-
-        System.out.print("Sorted array: ");
-
-        for (int value : sorted) {
-            System.out.print(value + " ");
+            // Sort left partition and add comparisons
+            comparisons += quickSort(arr, low, pivotIndex - 1);
+            // Sort right partition and add comparisons
+            comparisons += quickSort(arr, pivotIndex + 1, high);
         }
+        return comparisons;
+    }
+
+    // Partitions the array and returns both the pivot index and comparison count
+    private static int[] partition(int[] arr, int low, int high) {
+        int pivot = arr[high]; // using the last element as pivot
+        int i = (low - 1);
+        int comparisons = 0;
+
+        for (int j = low; j < high; j++) {
+            comparisons++; // Track every data value comparison
+            if (arr[j] <= pivot) {
+                i++;
+                // Swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Swap the pivot element to its correct place
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        // Return [pivotIndex, comparisonCount]
+        return new int[]{i + 1, comparisons};
     }
 }
