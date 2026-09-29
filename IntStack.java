@@ -8,7 +8,7 @@ public class IntStack {
         top = -1;
     }
 
-    // Push a value onto the stack
+
     void push(int value) {
 
         if (top == stack.length - 1) {
@@ -20,7 +20,7 @@ public class IntStack {
         stack[top] = value;
     }
 
-    // Remove and return the top value
+    
     int pop() {
 
         if (top == -1) {
@@ -34,7 +34,7 @@ public class IntStack {
         return value;
     }
 
-    // View the top value
+
     int peek() {
 
         if (top == -1) {
@@ -44,12 +44,11 @@ public class IntStack {
         return stack[top];
     }
 
-    // Check if stack is empty
+
     boolean isEmpty() {
         return top == -1;
     }
-
-    // Display stack contents
+    
     void display() {
 
         System.out.print("Stack: ");

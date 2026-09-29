@@ -12,7 +12,7 @@ public class PostfixEvaluator {
 
             System.out.println("\nToken: " + token);
 
-            // If token is an operator
+            
             if (token.equals("+") ||
                 token.equals("-") ||
                 token.equals("*") ||
@@ -39,7 +39,7 @@ public class PostfixEvaluator {
                 stack.push(result);
 
             }
-            // If token is a number
+            
             else {
 
                 int number = Integer.parseInt(token);
@@ -47,7 +47,7 @@ public class PostfixEvaluator {
                 stack.push(number);
             }
 
-            // Display stack after each operation
+            
             stack.display();
         }
 

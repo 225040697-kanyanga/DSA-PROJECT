@@ -1,6 +1,6 @@
 public class MergeSort {
 
-    // Main entry point that the experiment script will call
+    
     public static int sort(int[] array) {
         return mergeSort(array, 0, array.length - 1);
     }
@@ -9,11 +9,11 @@ public class MergeSort {
         int comparisons = 0;
         if (left < right) {
             int mid = (left + right) / 2;
-            // Accumulate comparisons from sorting the left half
+        
             comparisons += mergeSort(array, left, mid);
-            // Accumulate comparisons from sorting the right half
+        
             comparisons += mergeSort(array, mid + 1, right);
-            // Accumulate comparisons from merging the two halves together
+            
             comparisons += merge(array, left, mid, right);
         }
         return comparisons;
@@ -25,7 +25,7 @@ public class MergeSort {
         int i = left, j = mid + 1, k = 0;
         
         while (i <= mid && j <= right) {
-            comparisons++; // Track every data value comparison evaluated here
+            comparisons++; 
             if (array[i] <= array[j]) {
                 temp[k++] = array[i++];
             } else {

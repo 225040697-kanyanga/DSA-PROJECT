@@ -34,7 +34,7 @@ public class InsertionSort {
         System.out.println("Sorted array: " + arrayToString(arr));
         System.out.println("Total data-value comparisons: " + comparisons);
         System.out.println("Total shifts: " + shifts);
-        return 0;
+        return comparisons;
     }
 
     private static String arrayToString(int[] arr) {

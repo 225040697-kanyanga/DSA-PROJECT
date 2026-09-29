@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Arrays;
 
 public class SortingExperiment {
-    public static void runExpreriment() {
+    public static void runExperiment() { 
         int[] sizes = {20, 50, 100, 500};
         Random rand = new Random();
 

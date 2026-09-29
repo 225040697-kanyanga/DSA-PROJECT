@@ -3,7 +3,7 @@ public class SelectionSort {
     public static int sort(int[] arr) {
         int comparisons = 0;
         int n = arr.length;
-        int n swap = 0;
+        int swaps = 0;
 
         System.out.println("=== Selection Sort ===");
         System.out.println("Original array: " + arrayToString(arr));
@@ -39,7 +39,7 @@ public class SelectionSort {
         System.out.println("Sorted array: " + arrayToString(arr));
         System.out.println("Total data-value comparisons: " + comparisons);
         System.out.println("Total swaps: " + swaps);
-        return 0;
+        return comparisons;
     }
 
     private static String arrayToString(int[] arr) {
