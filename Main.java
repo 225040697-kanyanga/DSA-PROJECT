@@ -9,6 +9,8 @@ public class Main {
         StudentQueue queue = new StudentQueue(10);
         StudentLinkedList list = new StudentLinkedList();
         int choose =0;
+        int[] servedTimes = new int[100];
+         int servedCount = 0;
         
         do {
             System.out.println("  CAMPUS SERVICE CENTRE");
@@ -54,14 +56,17 @@ public class Main {
                     break;
                     
                     case 2:
-                        
-                        student = queue.dequeue();
-                        if (student != null) {
-                            System.out.println("Student being served:");
-                            student.display();
-                        }
+                    student = queue.dequeue();
+                    if (student != null) {
+                      System.out.println("Student being served:");
+                      student.display();
+                      if (servedCount < servedTimes.length) {
+                       servedTimes[servedCount] = student.serviceTime;
+                         servedCount++;
+                       }
+                    }
+                       break;    
                     
-                    break;
                     
                     case 3:
                     queue.displayQueue();
@@ -120,11 +125,14 @@ public class Main {
                     break;
                     
                     case 8:
-                    int[] serviceTimes = {12, 5, 8, 4, 15, 20, 3, 9, 11, 7};
-
-                    DailyStatisticsArray.calculate(serviceTimes);
-                    break;
                     
+                      int[] actualServiceTimes = new int[servedCount];
+                      for (int i = 0; i < servedCount; i++) {
+                         actualServiceTimes[i] = servedTimes[i];
+                     }
+                        DailyStatisticsArray.calculate(actualServiceTimes);
+                         break;
+
                     case 9:
                     int[] times = {17, 5, 23, 8, 14, 3, 11, 20, 6, 9};
 
