@@ -1,10 +1,13 @@
 public class DailyStatisticsArray {
 
-    public static void calculate(int[] serviceTime ) {
-    
-        int[] serviceTimes = {12, 5, 8, 4, 15, 20, 3, 9, 11, 7};
+    public static void calculate(int[] serviceTimes) {
 
-        System.out.println("=== Daily Statistics: Array ===");
+    if (serviceTimes == null || serviceTimes.length == 0) {
+        System.out.println("No service times recorded yet.");
+        return;
+    }
+
+    System.out.println("=== Daily Statistics: Array ===");
         System.out.print("Service times recorded today: ");
         printArray(serviceTimes);
         System.out.println();
