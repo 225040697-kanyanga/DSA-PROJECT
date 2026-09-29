@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository contains the **DSA521S Group Mini-Project 2026**, implemented in **Java**.
+This repository contains the **DSA521S Group Mini-Project 2026**, implemented in **Java**. Submitted by: 225034581 – Uusiku Bonifatius
 
 The project demonstrates the use and implementation of fundamental data structures, searching, sorting algorithms, and an integrated student service system.
 
