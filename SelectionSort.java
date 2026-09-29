@@ -1,6 +1,5 @@
 public class SelectionSort {
 
-    // This method is now ready to be used by the experiment script!
     public static int sort(int[] arr) {
         int comparisons = 0;
         int n = arr.length;
